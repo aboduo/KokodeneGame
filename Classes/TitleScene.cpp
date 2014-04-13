@@ -20,13 +20,13 @@ bool TitleScene::init()
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
 
-    Sprite* back = Sprite::create("bg.jpg");
+    Sprite* back = Sprite::create("title.png");
     back->setPosition(visibleSize.width / 2, visibleSize.height / 2);
-    back->setScale(2);
     
     this->addChild(back);
 
     Label* taptostart = Label::createWithBMFont("hase_toppo.fnt", "タップしてスタート");
+    taptostart->setScale(0.7);
     taptostart->setPosition(visibleSize.width / 2, 200);
     
     this->addChild(taptostart, 1);

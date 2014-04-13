@@ -63,8 +63,13 @@ bool GameScene::onTouchBegan(Touch* touch, Event* event) {
 }
 
 void GameScene::onTouchEnded(Touch* touch, Event* event) {
-    
-    Sprite* man = Sprite::create("man_6.png");
+
+    // seed
+    srand((unsigned int) time(NULL));
+    // 0〜5の間でランダム値を生成して +1 する
+    int manId = (rand() % 5) + 1;
+
+    Sprite* man = Sprite::create(StringUtils::format("man_%d.png", manId));
     man->setScale(1.2);
     man->setPosition(touch->getLocation().x, 800);
     PhysicsBody* manBody = PhysicsBody::createBox(man->getBoundingBox().size);
